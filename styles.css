@@ -10,10 +10,13 @@
     --secondary-color: #ff6b9d;
     --bg-dark: #1a1a2e;
     --bg-card: #25253d;
+    --bg-section: #2a2a45;
     --text-primary: #ffffff;
     --text-secondary: #a0a0c0;
     --gold: #ffd700;
     --success: #4ade80;
+    --warning: #fbbf24;
+    --danger: #f87171;
 }
 
 body {
@@ -203,7 +206,8 @@ header h1 {
 
 .compatibility-score {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 30px;
 }
 
@@ -239,83 +243,258 @@ header h1 {
     font-size: 2.8rem;
 }
 
-.details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.detail-card {
-    background: var(--bg-card);
-    border-radius: 14px;
-    padding: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.detail-card h3 {
-    font-size: 0.9rem;
-    color: var(--gold);
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.detail-card p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 8px;
-}
-
-.detail-card .value {
-    color: var(--text-primary);
+.score-label {
+    margin-top: 15px;
+    font-size: 1.1rem;
     font-weight: 600;
+    text-align: center;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
 }
 
-.analysis-section,
-.recommendations-section {
+/* Section blocks */
+.section-block {
     background: var(--bg-card);
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 20px;
     margin-bottom: 15px;
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-.analysis-section h3,
-.recommendations-section h3 {
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.section-icon {
+    font-size: 1.3rem;
+}
+
+.section-header h3 {
+    font-size: 1.1rem;
+    color: var(--gold);
+}
+
+.section-header h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+/* Person analysis blocks */
+.person-analysis {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.person-num-block,
+.person-astro-block {
+    background: var(--bg-section);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.person-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.calculation-steps {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    overflow-x: auto;
+}
+
+.number-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gold);
+    margin: 10px 0;
+}
+
+.number-meaning {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.number-traits {
+    margin-top: 10px;
+}
+
+.trait-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    background: rgba(107, 76, 230, 0.3);
+    color: var(--text-primary);
+}
+
+/* Zodiac display */
+.zodiac-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.zodiac-symbol {
+    font-size: 2.5rem;
+}
+
+.zodiac-info h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.zodiac-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.element-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.element-fire { background: rgba(239, 68, 68, 0.3); color: #fca5a5; }
+.element-earth { background: rgba(34, 197, 94, 0.3); color: #86efac; }
+.element-air { background: rgba(59, 130, 246, 0.3); color: #93c5fd; }
+.element-water { background: rgba(99, 102, 241, 0.3); color: #a5b4fc; }
+
+.zodiac-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Compatibility block */
+.compatibility-block {
+    background: var(--bg-section);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.compatibility-block h4 {
     font-size: 1rem;
     color: var(--gold);
     margin-bottom: 12px;
 }
 
-.analysis-section p,
-.recommendations-section p {
+.compat-score {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.compat-high { color: var(--success); }
+.compat-medium { color: var(--warning); }
+.compat-low { color: var(--danger); }
+
+.compat-description {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 10px;
 }
 
-.recommendations-section ul {
+/* Lists */
+.list-content ul {
     list-style: none;
     padding: 0;
 }
 
-.recommendations-section li {
+.list-content li {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    padding-left: 20px;
+    padding: 8px 0 8px 25px;
     position: relative;
-    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.recommendations-section li::before {
-    content: '\2728';
+.list-content li:last-child {
+    border-bottom: none;
+}
+
+.list-content li::before {
     position: absolute;
     left: 0;
+    font-size: 1rem;
 }
 
+.section-block.pros .list-content li::before {
+    content: '\2714';
+    color: var(--success);
+}
+
+.section-block.cons .list-content li::before {
+    content: '\26A0';
+    color: var(--warning);
+}
+
+.section-block .list-content li::before {
+    content: '\2022';
+    color: var(--primary-color);
+}
+
+#pros-list li::before {
+    content: '\2795';
+    color: var(--success);
+}
+
+#cons-list li::before {
+    content: '\2796';
+    color: var(--danger);
+}
+
+#recommendations-list li::before {
+    content: '\1F4A1';
+}
+
+/* Conclusion */
+.conclusion-content {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.conclusion-content p {
+    margin-bottom: 12px;
+}
+
+.conclusion-content .verdict {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 15px;
+    background: rgba(107, 76, 230, 0.2);
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Recalculate button */
 .recalculate-btn {
     width: 100%;
     padding: 14px 24px;
@@ -335,11 +514,7 @@ header h1 {
     color: white;
 }
 
-.zodiac-emoji {
-    font-size: 1.5rem;
-    margin-right: 5px;
-}
-
+/* Responsive */
 @media (max-width: 400px) {
     .container {
         padding: 15px;
@@ -358,7 +533,7 @@ header h1 {
         font-size: 2.2rem;
     }
 
-    .details-grid {
-        grid-template-columns: 1fr;
+    .section-block {
+        padding: 15px;
     }
 }
