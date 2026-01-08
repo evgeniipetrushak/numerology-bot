@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Совместимость по звёздам</title>
+    <title>Совместимость</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="bg-pattern"></div>
     <div class="container">
         <header>
-            <h1>Совместимость по звёздам</h1>
-            <p class="subtitle">Нумерология + Астрология</p>
+            <h1>Проверь совместимость с партнёром и узнай своё число судьбы 🔮</h1>
+            <p class="subtitle">Нумерология и Астрология</p>
         </header>
 
         <main>
             <form id="compatibility-form">
                 <div class="person-card female">
-                    <div class="card-header">
-                        <span class="card-icon female">&#9792;</span>
-                    </div>
+                    <span class="bg-symbol">♀</span>
                     <div class="input-group">
                         <label for="name1">Имя</label>
                         <input type="text" id="name1" name="name1" required>
@@ -30,14 +29,8 @@
                     </div>
                 </div>
 
-                <div class="hearts-divider">
-                    <span>&#10084;</span>
-                </div>
-
                 <div class="person-card male">
-                    <div class="card-header">
-                        <span class="card-icon male">&#9794;</span>
-                    </div>
+                    <span class="bg-symbol">♂</span>
                     <div class="input-group">
                         <label for="name2">Имя</label>
                         <input type="text" id="name2" name="name2" required>
@@ -49,7 +42,6 @@
                 </div>
 
                 <button type="submit" class="calculate-btn">
-                    <span class="btn-icon">&#9733;</span>
                     Рассчитать совместимость
                 </button>
             </form>
@@ -68,7 +60,7 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                        <span class="section-icon">&#128290;</span>
+                        <span class="section-icon">🔢</span>
                         <h3>Нумерологический анализ</h3>
                     </div>
 
@@ -85,7 +77,7 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                        <span class="section-icon">&#9734;</span>
+                        <span class="section-icon">⭐</span>
                         <h3>Астрологический анализ</h3>
                     </div>
 
@@ -102,7 +94,7 @@
 
                 <div class="section-block pros">
                     <div class="section-header">
-                        <span class="section-icon">&#10004;</span>
+                        <span class="section-icon">✓</span>
                         <h3>Сильные стороны пары</h3>
                     </div>
                     <div id="strengths-list" class="list-content"></div>
@@ -110,7 +102,7 @@
 
                 <div class="section-block cons">
                     <div class="section-header">
-                        <span class="section-icon">&#9888;</span>
+                        <span class="section-icon">⚠</span>
                         <h3>Возможные сложности</h3>
                     </div>
                     <div id="challenges-list" class="list-content"></div>
@@ -118,7 +110,7 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                        <span class="section-icon">&#10133;</span>
+                        <span class="section-icon">➕</span>
                         <h3>Плюсы союза</h3>
                     </div>
                     <div id="pros-list" class="list-content"></div>
@@ -126,7 +118,7 @@
 
                 <div class="section-block">
                     <div class="section-header">
-                        <span class="section-icon">&#10134;</span>
+                        <span class="section-icon">➖</span>
                         <h3>Минусы союза</h3>
                     </div>
                     <div id="cons-list" class="list-content"></div>
@@ -134,7 +126,7 @@
 
                 <div class="section-block conclusion">
                     <div class="section-header">
-                        <span class="section-icon">&#128218;</span>
+                        <span class="section-icon">📊</span>
                         <h3>Общий вывод</h3>
                     </div>
                     <div id="conclusion-text" class="conclusion-content"></div>
@@ -142,7 +134,7 @@
 
                 <div class="section-block recommendations">
                     <div class="section-header">
-                        <span class="section-icon">&#128161;</span>
+                        <span class="section-icon">💡</span>
                         <h3>Рекомендации для пары</h3>
                     </div>
                     <div id="recommendations-list" class="list-content"></div>
