@@ -311,7 +311,7 @@ header h1 {
 .section-header h3 {
     font-size: 1.05rem;
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Person analysis blocks */
@@ -459,8 +459,7 @@ header h1 {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    padding: 8px 0 8px 25px;
-    position: relative;
+    padding: 8px 0;
     border-bottom: 1px solid var(--bg-section);
 }
 
@@ -468,36 +467,20 @@ header h1 {
     border-bottom: none;
 }
 
-.list-content li::before {
-    position: absolute;
-    left: 0;
-    font-size: 0.9rem;
+
+/* Challenges list - gold/yellow text */
+#challenges-list li {
+    color: #b8860b;
 }
 
-#strengths-list li::before {
-    content: '✓';
+/* Pros list - green text */
+#pros-list li {
     color: var(--success);
 }
 
-#challenges-list li::before {
-    content: '⚠';
-    color: var(--warning);
-}
-
-#pros-list li::before {
-    content: '+';
-    color: var(--success);
-    font-weight: bold;
-}
-
-#cons-list li::before {
-    content: '−';
+/* Cons list - red text */
+#cons-list li {
     color: var(--danger);
-    font-weight: bold;
-}
-
-#recommendations-list li::before {
-    content: '💡';
 }
 
 /* Conclusion */
@@ -517,10 +500,12 @@ header h1 {
     border-radius: 12px;
     overflow: hidden;
     margin: 12px 0;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .conclusion-content table td {
-    padding: 10px 12px;
+    padding: 12px 16px;
     color: var(--text-primary);
 }
 
