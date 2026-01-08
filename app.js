@@ -777,31 +777,110 @@ function displayResults(result, person1, person2) {
     document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
 }
 
+// ==================== ВАЛИДАЦИЯ ====================
+
+function validateDate(dateStr) {
+    if (!dateStr) return { valid: false, error: 'Укажите дату рождения' };
+
+    const date = new Date(dateStr);
+    const now = new Date();
+    const year = date.getFullYear();
+
+    // Проверка на корректность даты
+    if (isNaN(date.getTime())) {
+        return { valid: false, error: 'Ошибка даты' };
+    }
+
+    // Проверка года (разумные пределы)
+    if (year < 1900 || year > now.getFullYear()) {
+        return { valid: false, error: 'Ошибка даты' };
+    }
+
+    // Проверка что человеку минимум 6 лет
+    const minDate = new Date();
+    minDate.setFullYear(minDate.getFullYear() - 6);
+    if (date > minDate) {
+        return { valid: false, error: 'Возраст должен быть не менее 6 лет' };
+    }
+
+    // Проверка что человеку не более 120 лет
+    const maxDate = new Date();
+    maxDate.setFullYear(maxDate.getFullYear() - 120);
+    if (date < maxDate) {
+        return { valid: false, error: 'Ошибка даты' };
+    }
+
+    return { valid: true };
+}
+
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    input.classList.add('error');
+
+    // Удаляем предыдущее сообщение об ошибке если есть
+    const existingError = input.parentElement.querySelector('.error-msg');
+    if (existingError) existingError.remove();
+
+    // Добавляем новое сообщение
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-msg';
+    errorDiv.style.cssText = 'color: #f44336; font-size: 0.8rem; margin-top: 5px;';
+    errorDiv.textContent = message;
+    input.parentElement.appendChild(errorDiv);
+}
+
+function clearErrors() {
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.error-msg').forEach(el => el.remove());
+}
+
 // ==================== ОБРАБОТЧИКИ ====================
 
 function resetForm() {
     document.getElementById('compatibility-form').reset();
     document.getElementById('result').classList.add('hidden');
+    clearErrors();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.getElementById('compatibility-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    clearErrors();
 
-    const person1 = {
-        name: document.getElementById('name1').value.trim(),
-        date: document.getElementById('date1').value
-    };
+    const name1 = document.getElementById('name1').value.trim();
+    const date1 = document.getElementById('date1').value;
+    const name2 = document.getElementById('name2').value.trim();
+    const date2 = document.getElementById('date2').value;
 
-    const person2 = {
-        name: document.getElementById('name2').value.trim(),
-        date: document.getElementById('date2').value
-    };
+    let hasError = false;
 
-    if (!person1.name || !person1.date || !person2.name || !person2.date) {
-        alert('Пожалуйста, заполните все поля');
-        return;
+    // Проверка имён
+    if (!name1) {
+        showError('name1', 'Укажите имя');
+        hasError = true;
     }
+    if (!name2) {
+        showError('name2', 'Укажите имя');
+        hasError = true;
+    }
+
+    // Проверка дат
+    const date1Validation = validateDate(date1);
+    if (!date1Validation.valid) {
+        showError('date1', date1Validation.error);
+        hasError = true;
+    }
+
+    const date2Validation = validateDate(date2);
+    if (!date2Validation.valid) {
+        showError('date2', date2Validation.error);
+        hasError = true;
+    }
+
+    if (hasError) return;
+
+    const person1 = { name: name1, date: date1 };
+    const person2 = { name: name2, date: date2 };
 
     const result = calculateCompatibility(person1, person2);
     displayResults(result, person1, person2);
