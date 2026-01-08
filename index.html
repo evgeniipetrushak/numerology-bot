@@ -10,21 +10,19 @@
 <body>
     <div class="container">
         <header>
-            <div class="stars-bg"></div>
             <h1>Совместимость по звёздам</h1>
             <p class="subtitle">Нумерология + Астрология</p>
         </header>
 
         <main>
             <form id="compatibility-form">
-                <div class="person-card">
+                <div class="person-card female">
                     <div class="card-header">
-                        <span class="card-icon">&#9792;</span>
-                        <h2>Партнёр 1</h2>
+                        <span class="card-icon female">&#9792;</span>
                     </div>
                     <div class="input-group">
                         <label for="name1">Имя</label>
-                        <input type="text" id="name1" name="name1" placeholder="Например: Вика" required>
+                        <input type="text" id="name1" name="name1" required>
                     </div>
                     <div class="input-group">
                         <label for="date1">Дата рождения</label>
@@ -36,14 +34,13 @@
                     <span>&#10084;</span>
                 </div>
 
-                <div class="person-card">
+                <div class="person-card male">
                     <div class="card-header">
-                        <span class="card-icon">&#9794;</span>
-                        <h2>Партнёр 2</h2>
+                        <span class="card-icon male">&#9794;</span>
                     </div>
                     <div class="input-group">
                         <label for="name2">Имя</label>
-                        <input type="text" id="name2" name="name2" placeholder="Например: Роман" required>
+                        <input type="text" id="name2" name="name2" required>
                     </div>
                     <div class="input-group">
                         <label for="date2">Дата рождения</label>
@@ -58,19 +55,17 @@
             </form>
 
             <div id="result" class="result-section hidden">
-                <!-- Общий результат -->
                 <div class="result-header">
                     <h2>Ваша совместимость</h2>
                 </div>
 
                 <div class="compatibility-score">
                     <div class="score-circle">
-                        <span id="score-value">0</span>%
+                        <span id="score-value">0</span>
                     </div>
                     <div id="score-label" class="score-label"></div>
                 </div>
 
-                <!-- Нумерологический анализ -->
                 <div class="section-block">
                     <div class="section-header">
                         <span class="section-icon">&#128290;</span>
@@ -88,7 +83,6 @@
                     </div>
                 </div>
 
-                <!-- Астрологический анализ -->
                 <div class="section-block">
                     <div class="section-header">
                         <span class="section-icon">&#9734;</span>
@@ -106,7 +100,6 @@
                     </div>
                 </div>
 
-                <!-- Сильные стороны -->
                 <div class="section-block pros">
                     <div class="section-header">
                         <span class="section-icon">&#10004;</span>
@@ -115,7 +108,6 @@
                     <div id="strengths-list" class="list-content"></div>
                 </div>
 
-                <!-- Возможные сложности -->
                 <div class="section-block cons">
                     <div class="section-header">
                         <span class="section-icon">&#9888;</span>
@@ -124,7 +116,6 @@
                     <div id="challenges-list" class="list-content"></div>
                 </div>
 
-                <!-- Плюсы союза -->
                 <div class="section-block">
                     <div class="section-header">
                         <span class="section-icon">&#10133;</span>
@@ -133,7 +124,6 @@
                     <div id="pros-list" class="list-content"></div>
                 </div>
 
-                <!-- Минусы союза -->
                 <div class="section-block">
                     <div class="section-header">
                         <span class="section-icon">&#10134;</span>
@@ -142,7 +132,6 @@
                     <div id="cons-list" class="list-content"></div>
                 </div>
 
-                <!-- Общий вывод -->
                 <div class="section-block conclusion">
                     <div class="section-header">
                         <span class="section-icon">&#128218;</span>
@@ -151,7 +140,6 @@
                     <div id="conclusion-text" class="conclusion-content"></div>
                 </div>
 
-                <!-- Рекомендации -->
                 <div class="section-block recommendations">
                     <div class="section-header">
                         <span class="section-icon">&#128161;</span>
