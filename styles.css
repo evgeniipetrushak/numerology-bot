@@ -119,11 +119,11 @@ header h1 {
 }
 
 .person-card.female .bg-symbol {
-    color: rgba(255, 64, 129, 0.08);
+    color: rgba(255, 64, 129, 0.15);
 }
 
 .person-card.male .bg-symbol {
-    color: rgba(33, 150, 243, 0.08);
+    color: rgba(33, 150, 243, 0.15);
 }
 
 .input-group {
