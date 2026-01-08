@@ -102,10 +102,10 @@ header h1 {
 /* Large background symbol */
 .bg-symbol {
     position: absolute;
-    right: -10px;
+    right: -20px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 8rem;
+    font-size: 16rem;
     line-height: 1;
     pointer-events: none;
     z-index: 0;
@@ -459,7 +459,8 @@ header h1 {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    padding: 8px 0;
+    padding: 8px 0 8px 25px;
+    position: relative;
     border-bottom: 1px solid var(--bg-section);
 }
 
@@ -467,19 +468,48 @@ header h1 {
     border-bottom: none;
 }
 
-
-/* Challenges list - gold/yellow text */
-#challenges-list li {
-    color: #b8860b;
+.list-content li::before {
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
 }
 
-/* Pros list - green text */
-#pros-list li {
+#strengths-list li::before {
+    content: '✓';
     color: var(--success);
 }
 
-/* Cons list - red text */
-#cons-list li {
+#challenges-list li::before {
+    content: '⚠';
+    color: var(--warning);
+}
+
+#pros-list li::before {
+    content: '+';
+    color: var(--success);
+    font-weight: bold;
+}
+
+#cons-list li::before {
+    content: '−';
+    color: var(--danger);
+    font-weight: bold;
+}
+
+#recommendations-list li::before {
+    content: '💡';
+}
+
+/* Section header colors */
+.section-block.challenges .section-header h3 {
+    color: #b8860b;
+}
+
+.section-block.pros .section-header h3 {
+    color: var(--success);
+}
+
+.section-block.cons .section-header h3 {
     color: var(--danger);
 }
 
@@ -496,16 +526,12 @@ header h1 {
 
 .conclusion-content table {
     width: 100%;
-    background: var(--bg-section);
-    border-radius: 12px;
-    overflow: hidden;
     margin: 12px 0;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 .conclusion-content table td {
-    padding: 12px 16px;
+    padding: 8px 0;
     color: var(--text-primary);
 }
 
@@ -569,6 +595,6 @@ header h1 {
     }
 
     .bg-symbol {
-        font-size: 6rem;
+        font-size: 12rem;
     }
 }
